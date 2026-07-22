@@ -1,17 +1,29 @@
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useTestCasesStore = defineStore('testCases', () => {
-  // --- STATE: los datos que vive en la "caja" ---
-  const testCases = ref([])
+const STORAGE_KEY = 'test-case-tracker:testCases'
 
-  // --- ACTIONS: funciones que modifican el state ---
+export const useTestCasesStore = defineStore('testCases', () => {
+  // --- STATE: intenta leer de localStorage; si no hay nada, empieza vacío ---
+  const stored = localStorage.getItem(STORAGE_KEY)
+  const testCases = ref(stored ? JSON.parse(stored) : [])
+
+  // --- Cada vez que testCases cambie, lo guardamos en localStorage ---
+  watch(
+    testCases,
+    (newValue) => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newValue))
+    },
+    { deep: true } // 'deep' porque testCases es un array de objetos, no un valor simple
+  )
+
+  // --- ACTIONS ---
   function addTestCase(title, description) {
     testCases.value.push({
       id: crypto.randomUUID(),
       title,
       description,
-      status: 'pending', // 'pending' | 'passed' | 'failed'
+      status: 'pending',
       createdAt: new Date().toISOString(),
     })
   }
@@ -27,7 +39,7 @@ export const useTestCasesStore = defineStore('testCases', () => {
     testCases.value = testCases.value.filter((tc) => tc.id !== id)
   }
 
-  // --- GETTERS: datos calculados a partir del state ---
+  // --- GETTERS ---
   const totalCount = computed(() => testCases.value.length)
   const passedCount = computed(
     () => testCases.value.filter((tc) => tc.status === 'passed').length
