@@ -22,7 +22,13 @@ Construido como proyecto de portafolio para practicar el stack moderno de fronte
 
 ## Capturas de pantalla
 
-> _Se agregan después del deploy_
+### Vista general
+Formulario para agregar casos de prueba y contadores en tiempo real.
+<img src="docs/screenshots/demo-formulario.png" alt="Vista general del Test Case Tracker" width="700"/>
+
+### Lista de casos de prueba
+Cada tarjeta muestra su estado (Pendiente / Pasó / Falló) con acciones rápidas para actualizarlo.
+<img src="docs/screenshots/demo-lista.png" alt="Lista de casos de prueba" width="700"/>
 
 ---
 
