@@ -1,38 +1,86 @@
-# test-case-tracker
+<div align="center">
+  <h1>Test Case Tracker</h1>
+  <p>Gestor simple de casos de prueba — creado con Vue 3, Pinia y Tailwind CSS</p>
 
-This template should help get you started developing with Vue 3 in Vite.
+  ![Vue](https://img.shields.io/badge/Vue-3-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
+  ![Pinia](https://img.shields.io/badge/Pinia-State_Management-FFD859?style=flat-square&logo=pinia&logoColor=black)
+  ![Tailwind](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+  ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat-square&logo=vite&logoColor=white)
 
-## Recommended IDE Setup
+  ### [🔗 Ver demo en vivo](https://test-case-tracker-one.vercel.app/)
+</div>
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+## Descripción
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Aplicación pequeña para gestionar casos de prueba: crear, marcar como **Pasó** / **Falló** / **Pendiente**, y ver un resumen en tiempo real. Nace de mi experiencia como analista de QA en banca — es la herramienta que yo mismo usaría para llevar un registro rápido de pruebas manuales.
 
-## Customize configuration
+Construido como proyecto de portafolio para practicar el stack moderno de frontend (Vue 3 + Composition API + Pinia + Tailwind v4).
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## Capturas de pantalla
 
-```sh
+> _Se agregan después del deploy_
+
+---
+
+## Funcionalidades
+
+- ✅ Crear casos de prueba con título y descripción
+- ✅ Cambiar estado individual (Pendiente / Pasó / Falló)
+- ✅ Eliminar casos de prueba
+- ✅ Contadores en tiempo real (total, pendientes, pasados, fallados)
+- ✅ Persistencia local — los datos no se pierden al recargar la página (`localStorage`)
+
+---
+
+## Stack tecnológico
+
+| Tecnología | Uso |
+|------------|-----|
+| **Vue 3** (Composition API) | Framework principal |
+| **Pinia** | Gestión de estado global |
+| **Tailwind CSS v4** | Estilos |
+| **Vite** | Bundler y servidor de desarrollo |
+
+---
+
+## Instalación local
+
+```bash
+git clone https://github.com/AlejoM98/test-case-tracker.git
+cd test-case-tracker
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Abre `http://localhost:5173`
 
-```sh
-npm run build
+---
+
+## Estructura del proyecto
+
 ```
+test-case-tracker/
+├── src/
+│   ├── components/
+│   │   ├── TestCaseForm.vue    # Formulario para agregar casos
+│   │   └── TestCaseList.vue    # Lista con tarjetas y acciones
+│   ├── stores/
+│   │   └── testCases.js        # Store de Pinia (estado + localStorage)
+│   ├── App.vue                 # Vista principal
+│   └── main.js
+└── README.md
+```
+
+---
+
+## Autor
+
+**Ives Alejandro Orozco Mansilla**
+Ingeniero en Sistemas Informáticos — QA / Desarrollo Web
+
+[![GitHub](https://img.shields.io/badge/GitHub-AlejoM98-181717?style=flat-square&logo=github)](https://github.com/AlejoM98)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ives_Alejandro-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ives-alejandro)
